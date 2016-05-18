@@ -1,0 +1,116 @@
+libCSAM contains several C++ codes for compress,decompress, and 
+access each of the fields of any SAM format file. Part of this library 
+was taking from Francisco Claude libcds project 
+(https://github.com/fclaude/libcds/). Also the boost C++ library must 
+be installed in your computer (http://www.boost.org/).
+
+
+Programs:
+
+CompressQual :		./CompressQual <arch> <opt>
+			arch: 	SAM format file. Note that only the quality field will be use.
+			opt: 
+				-q mode: 	How the Quality values are stored. 
+			  			mode=0 	gzip 
+			  	 		mode=1 	P-Block  
+			  	 		mode=2 	R-Block
+ 			  	 		mode=3 	Bins base on the LogBinning Wan et al.
+ 						       	2011 paper. Note that UniBinning is 
+						       	also implemented but is not included 
+						       	in this program.  
+			   	 		mode=4 	Only one value is stored to represent
+		 					all the qualities  
+			  	 		default:  0
+				-m mode: 	If 'q' is 1 or 2, give the mode use to store
+ 						the Representative Array. 
+				 		mode=0 	ASCII 
+				 		mode=1 	Binary Global 
+				 		mode=2 	Binary Local
+				 		default=1
+				-l lossy: 	Lossy parameter use to compress the quality
+						score depending on the mode use. 
+			  	 		P-Block: maximum distance between the values
+		 					 and their representative (1,2,3,4)
+			  	 		R-BLock: Max/Min maximum diference allowed,
+		 					 recieve the extra overhead pbb 
+							 (5, 20, 40, 100) 
+			  	 		Bins:    number of bins to be use (94, 20,
+							 10, 5)
+				-r :     	Reorder the quality scores by reference and
+	 					position. Also the permutation is stored
+				-s sample:  	Size of the sample rate that will be use.
+ 						default: no sample. 
+
+			output: .cqual File
+
+			Example: ./CompressQual ./data/file.sam -q 2 -l 60 -s 500 -r
+			output:  file.sam.cqual
+
+			Compress the quality scores of file.sam using R-Block with r=1.60 
+			storing a sample every 500 lines and reordering the file 
+			by reference and position in the reference.
+
+CompressSAM
+
+CompressSeq
+
+CountReadsSample
+
+DecompressQual :	Use: ./DecompressQual <arch>
+			arch: 	.cqual File
+			output:	.qual File containing the quality scores
+
+DecompressSAM
+
+DescompressSeq
+
+GetIntervalSAM
+
+GetIntervalSAMSample
+
+GetIntervalSeq
+
+GetIntervalSeqSample
+
+GetIntervalSSN
+
+Also this library contains in the  stats_src the following programs:
+
+
+*Change_qual :		Changes the quality field of a SAM file with the quality file given
+  			Use: python ./Change_qual.py file.sam new_qual.qual
+			output: newSAM.sam
+
+*Change_qual_letter : 	Changes the quality field of a SAM file to only one quality score 
+			value.
+		  	Use: python ./Change_qual_letter.py file.sam letter name_output.sam
+			output: name_output.sam
+
+*Compute_Avg
+
+*ComputeEntroHist
+
+*ComputeEntroQual
+
+*ComputeMetrics :	Compares two quality files and compute some distance metrics
+ 			(compile first: g++ -o ComputeMetrics ComputeMetrics.cpp)
+ 			Use: ./ComputeMetrics qualityFile.qual referenceFile.qual
+			output : In screen print the Manhattan, Max:Min, MSE, Chebyshev, 
+			Soergel and Lorentzian metrics.
+
+*Get_qual :		Extracs the quality field of a SAM file
+			Use: python ./Get_qual.py file.sam
+ 			output:  file.sam.qual
+
+
+*Get_seq
+
+*getVCF
+
+*get_vcf_stats
+
+
+
+
+Note: These codes assume that the computer have enough RAM memory to read and store the complete input.
+
