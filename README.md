@@ -51,17 +51,17 @@ Also this library contains in the  stats_src the following programs:
         Use: python ./Change_qual_letter.py file.sam letter name_output.sam
         output: name_output.sam
 
--[Compute_Avg] (https://github.com/stats_src)
+-[ComputeEntroHist] (https://github.com/stats_src): Computes the Entropy of order 0 of a file return the histogram of each symbol
 
--[ComputeEntroHist] (https://github.com/stats_src)
+      (compile first: g++ -o ComputeMetrics ComputeMetrics.cpp)
+      Use: ./ComputeEntroHist <arch> <out_arch>
+      output: In screen prints the entropy of the file, and in <out_arch> returns the histogram of the symbols
 
--[ComputeEntroQual] (https://github.com/stats_src) 
-
--[ComputeMetrics] (https://github.com/stats_src):	Compares two quality files and compute some distance metrics
+-[ComputeMetrics] (https://github.com/stats_src): Compares two quality files and compute some distance metrics
 
         (compile first: g++ -o ComputeMetrics ComputeMetrics.cpp)
         Use: ./ComputeMetrics qualityFile.qual referenceFile.qual
-        output : In screen print the Manhattan, Max:Min, MSE, Chebyshev, Soergel and Lorentzian metrics.
+        output : In screen prints the Manhattan, Max:Min, MSE, Chebyshev, Soergel and Lorentzian metrics.
 
 -[Get_qual] (https://github.com/stats_src):	Extracs the quality field of a SAM file
 
@@ -69,11 +69,20 @@ Also this library contains in the  stats_src the following programs:
         output:  file.sam.qual
 
 
--[Get_seq] (https://github.com/stats_src) 
+-[Get_seq] (https://github.com/stats_src): Extracs the reference, positon and sequence field of a SAM file
 
--[getVCF] (https://github.com/stats_src) 
+        Use: python ./Get_seq.py file.sam
+        output:  file.sam.seq
 
--[get_vcf_stats] (https://github.com/stats_src)
+-[getVCF] (https://github.com/stats_src): Simple example of how to generate the vcf file of a BAM file using mpileup and bcftools.
+
+        Use: ./getVCF reference_file file.bam
+        output:  file.bam.vcg
+
+-[get_vcf_stats] (https://github.com/stats_src): Compares two vcf files computing true positive, false positive, false negative, precision, recall, and MSE.
+
+        Use: python ./get_vcf_stats.py original.vcf second.vcf
+        output: Returns stats in screen
 
 
 
