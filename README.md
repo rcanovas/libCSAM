@@ -110,13 +110,22 @@ be installed in your computer (http://www.boost.org/).
         pos_x, pos_y:  interval positions
         output: file_name + "_inter.sam" File
 
--[GetIntervalSAMSample] (https://github.com/tests)
+-[GetIntervalSeq] (https://github.com/tests): Same as before but only extracting only the SEQ fields.
 
--[GetIntervalSeq] (https://github.com/tests)
+-[GetIntervalSAMSample] (https://github.com/tests): Same as GetIntervalSAM but receive a file containing many intervals to query
 
--[GetIntervalSeqSample] (https://github.com/tests)
+           Use: ./GetIntervalSAMSample <arch>.csam sample_interval_file
+           Use:	./GetIntervalSAMSample <arch>.csam sample_interval_file BuffSizeInBytes
 
--[GetIntervalSSN] (https://github.com/tests)
+
+-[GetIntervalSeqSample] (https://github.com/tests): Same as before but only extracting the SEQ field
+
+-[GetIntervalSSN] (https://github.com/tests): Same as GetIntervalSAMSample but extracting only a selection of the Fields and replacing the rest with empty values. For the moment it extrac a minimal set (QNAME FLAG RNAME POS MAPQ SEQ). Modify line 113 
+of the file to change this option (TODO: do it by command line)
+
+           Use: ./GetIntervalSSN <arch>.csam sample_interval_file
+           output: file_name + "_inter.sam" File
+
 
 
 ## Stats Methods
