@@ -39,7 +39,6 @@ void CQualLL::ProcessLine(string qual){
 		size_t pi = getpid();  //id of the process
 		tmp_name = "tmp_llqual_" + to_string(pi); //should work
 		fileQual.open(tmp_name.c_str()); //create temporal file
-		fileQual.open(tmp_name.c_str()); //create temporal file
 	}
 	CQual += qual + "\n";
 	if(((numberOfLines + 1) % IndexRate) == 0){
