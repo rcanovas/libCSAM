@@ -26,26 +26,27 @@ be installed in your computer (http://www.boost.org/).
 
 -[CompressQual] (https://github.com/tests):
 
-		arch: 	SAM format file. Note that only the quality field will be use.
-		opt: 
-			-q mode: 	How the Quality values are stored. 
-			  			mode=0 	gzip 
-			  	 		mode=1 	P-Block  
-			  	 		mode=2 	R-Block
- 			  	 		mode=3 	Bins base on the LogBinning Wan et al.
- 						       	2011 paper. Note that UniBinning is 
-						       	also implemented but is not included 
-						       	in this program.  
-			   	 		mode=4 	Only one value is stored to represent
-						       all the qualities  
-			  	 		default:  0
-			-m mode: 	If 'q' is 1 or 2, give the mode use to store
+	Use: ./CompressQual <arch> <opt>
+	arch: 	SAM format file. Note that only the quality field will be use.
+	opt: 
+		-q mode: 	How the Quality values are stored. 
+			  	mode=0 	gzip 
+			  	mode=1 	P-Block  
+			  	mode=2 	R-Block
+ 			  	mode=3 	Bins base on the LogBinning Wan et al.
+ 					2011 paper. Note that UniBinning is 
+				       	also implemented but is not included 
+				       	in this program. 
+				mode=4 	Only one value is stored to represent
+				        all the qualities  
+			  	default:  0
+		-m mode: 	If 'q' is 1 or 2, give the mode use to store
  						the Representative Array. 
 				 		mode=0 	ASCII 
 				 		mode=1 	Binary Global 
 				 		mode=2 	Binary Local
 				 		default=1
-			-l lossy: 	Lossy parameter use to compress the quality
+		-l lossy: 	Lossy parameter use to compress the quality
 						score depending on the mode use. 
 						P-Block: maximum distance between the values
 							and their representative (1,2,3,4)
@@ -54,9 +55,9 @@ be installed in your computer (http://www.boost.org/).
 							 (5, 20, 40, 100) 
 						Bins:    number of bins to be use (94, 20,
 							 10, 5)
-			-r :     	Reorder the quality scores by reference and
+		-r :     	Reorder the quality scores by reference and
 						position. Also the permutation is stored
-			-s sample:  Size of the sample rate that will be use.
+		-s sample:  Size of the sample rate that will be use.
 						default: no sample. 
 
 		output: .cqual File
