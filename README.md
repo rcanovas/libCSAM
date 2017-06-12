@@ -8,7 +8,7 @@ be installed in your computer (http://www.boost.org/).
 
 ## Methods
 
--[CompressSAM] (https://github.com/tests):
+-[CompressSAM]:
 
       Use: ./CompressSAM <arch> <opt>
       opt: 
@@ -24,7 +24,7 @@ be installed in your computer (http://www.boost.org/).
 		output:  file.sam.csam
         
 
--[CompressQual] (https://github.com/tests):
+-[CompressQual]:
 
 	Use: ./CompressQual <arch> <opt>
 	arch: 	SAM format file. Note that only the quality field will be use.
@@ -69,7 +69,7 @@ be installed in your computer (http://www.boost.org/).
 		by reference and position in the reference.
 
 
--[CompressSeq] (https://github.com/tests):
+-[CompressSeq]:
 
       Use: ./CompressSeq <arch> <opt>
       <arch>:  must be a .sam or .rps (rname pos seq) file
@@ -78,32 +78,32 @@ be installed in your computer (http://www.boost.org/).
           
       output: .cseq file
 
--[DecompressSAM] (https://github.com/tests):
+-[DecompressSAM]:
 
        Use: ./DecompressSAM <arch>
        arch: .csam File
        output:.sam File containing the SAM information
 
 
--[DecompressQual] (https://github.com/tests):
+-[DecompressQual]:
     
        Use: ./DecompressQual <arch>
        arch: .cqual File
        output:.qual File containing the quality scores
 
--[DescompressSeq] (https://github.com/tests):
+-[DescompressSeq]:
 
        Use: ./DecompressSeq <arch>
        arch: .cseq File
        output:.seq File containing only the sequence field
 
--[CountReadsSample] (https://github.com/tests): Counts the number of read within each of the intervals in the sample_interval size. Also gives some stats about the interval found.
+-[CountReadsSample]: Counts the number of read within each of the intervals in the sample_interval size. Also gives some stats about the interval found.
 
         Use: ./CountReadsSample <arch>.csam sample_interval_file
         output: On screen
 
 
--[GetIntervalSAM] (https://github.com/tests): Extracs from a csam file all the alignment lines wihtin the interval (ref,x,y)
+-[GetIntervalSAM]: Extracs from a csam file all the alignment lines wihtin the interval (ref,x,y)
     
         Use: ./GetIntervalSAM <arch> ref_name pos_x pos_y
         arch: .csam File
@@ -111,17 +111,17 @@ be installed in your computer (http://www.boost.org/).
         pos_x, pos_y:  interval positions
         output: file_name + "_inter.sam" File
 
--[GetIntervalSeq] (https://github.com/tests): Same as before but only extracting only the SEQ fields.
+-[GetIntervalSeq]: Same as before but only extracting only the SEQ fields.
 
--[GetIntervalSAMSample] (https://github.com/tests): Same as GetIntervalSAM but receive a file containing many intervals to query
+-[GetIntervalSAMSample]: Same as GetIntervalSAM but receive a file containing many intervals to query
 
            Use: ./GetIntervalSAMSample <arch>.csam sample_interval_file
            Use:	./GetIntervalSAMSample <arch>.csam sample_interval_file BuffSizeInBytes
 
 
--[GetIntervalSeqSample] (https://github.com/tests): Same as before but only extracting the SEQ field
+-[GetIntervalSeqSample]: Same as before but only extracting the SEQ field
 
--[GetIntervalSSN] (https://github.com/tests): Same as GetIntervalSAMSample but extracting only a selection of the Fields and replacing the rest with empty values. For the moment it extrac a minimal set (QNAME FLAG RNAME POS MAPQ SEQ). Modify line 113 
+-[GetIntervalSSN]: Same as GetIntervalSAMSample but extracting only a selection of the Fields and replacing the rest with empty values. For the moment it extrac a minimal set (QNAME FLAG RNAME POS MAPQ SEQ). Modify line 113 
 of the file to change this option (TODO: do it by command line)
 
            Use: ./GetIntervalSSN <arch>.csam sample_interval_file
