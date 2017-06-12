@@ -134,45 +134,45 @@ of the file to change this option (TODO: do it by command line)
 Also this library contains in the  stats_src the following programs:
 
 
--[Change_qual] (https://github.com/stats_src):	Changes the quality field of a SAM file with the quality file given	
+-[Change_qual]:	Changes the quality field of a SAM file with the quality file given	
 
         Use: python ./Change_qual.py file.sam new_qual.qual
         output: newSAM.sam
 
--[Change_qual_letter] (https://github.com/stats_src): Changes the quality field of a SAM file to only one quality score value
+-[Change_qual_letter]: Changes the quality field of a SAM file to only one quality score value
 
         Use: python ./Change_qual_letter.py file.sam letter name_output.sam
         output: name_output.sam
 
--[ComputeEntroHist] (https://github.com/stats_src): Computes the Entropy of order 0 of a file return the histogram of each symbol
+-[ComputeEntroHist]: Computes the Entropy of order 0 of a file return the histogram of each symbol
 
       (compile first: g++ -o ComputeMetrics ComputeMetrics.cpp)
       Use: ./ComputeEntroHist <arch> <out_arch>
       output: In screen prints the entropy of the file, and in <out_arch> returns the histogram of the symbols
 
--[ComputeMetrics] (https://github.com/stats_src): Compares two quality files and compute some distance metrics
+-[ComputeMetrics]: Compares two quality files and compute some distance metrics
 
         (compile first: g++ -o ComputeMetrics ComputeMetrics.cpp)
         Use: ./ComputeMetrics qualityFile.qual referenceFile.qual
         output : In screen prints the Manhattan, Max:Min, MSE, Chebyshev, Soergel and Lorentzian metrics.
 
--[Get_qual] (https://github.com/stats_src):	Extracs the quality field of a SAM file
+-[Get_qual]:	Extracs the quality field of a SAM file
 
         Use: python ./Get_qual.py file.sam
         output:  file.sam.qual
 
 
--[Get_seq] (https://github.com/stats_src): Extracs the reference, positon and sequence field of a SAM file
+-[Get_seq]: Extracs the reference, positon and sequence field of a SAM file
 
         Use: python ./Get_seq.py file.sam
         output:  file.sam.rps
 
--[getVCF] (https://github.com/stats_src): Simple example of how to generate the vcf file of a BAM file using mpileup and bcftools.
+-[getVCF]: Simple example of how to generate the vcf file of a BAM file using mpileup and bcftools.
 
         Use: ./getVCF reference_file file.bam
         output:  file.bam.vcg
 
--[get_vcf_stats] (https://github.com/stats_src): Compares two vcf files computing true positive, false positive, false negative, precision, recall, and MSE.
+-[get_vcf_stats]: Compares two vcf files computing true positive, false positive, false negative, precision, recall, and MSE.
 
         Use: python ./get_vcf_stats.py original.vcf second.vcf
         output: Returns stats in screen
