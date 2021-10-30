@@ -19,8 +19,7 @@ OBJS = 	./src/basics/io.o \
 				./src/csam/CSAM.o\
 
 
-BIN = CompressSAM DecompressSAM CompressQual DecompressQual CompressSeq DecompressSeq GetIntervalSeq GetIntervalSeqSample CountReadsSample GetIntervalSAM
-
+BIN = CompressSAM DecompressSAM CompressQual DecompressQual CompressSeq DecompressSeq GetIntervalSeq GetIntervalSeqSample CountReadsSample GetIntervalSAM GetIntervalSAMSample GetIntervalSSN
 %.o: %.cpp
 	@echo " [C++] Compiling $<"
 	@$(CPP) $(FLAGS) -c $< -o $@ 
